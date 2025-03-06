@@ -43,22 +43,59 @@
  * @param {string} s
  * @return {number}
  */
+
+// var romanToInt = function (s) {
+//   let romanMap = {
+//     I: 1,
+//     V: 5,
+//     X: 10,
+//     L: 50,
+//     C: 100,
+//     D: 500,
+//     M: 1000,
+//   };
+//   let result = 0;
+//   for (let i = 0; i < s.length; i++) {
+//     let currentValue = romanMap[s[i]];
+//     if (currentValue < romanMap[s[i + 1]]) {
+//       result -= currentValue;
+//     } else {
+//       result += currentValue;
+//     }
+//   }
+
+//   return result;
+// };
+
 var romanToInt = function (s) {
-  switch (x) {
-    case "I":
-      break;
-    case "V":
-      break;
-    case "X":
-      break;
-    case "L":
-      break;
-    case "C":
-      break;
-    case "D":
-      break;
-    case "M":
-      break;
+  const romanMap = new Map([
+    ["I", 1],
+    ["V", 5],
+    ["X", 10],
+    ["L", 50],
+    ["C", 100],
+    ["D", 500],
+    ["M", 1000],
+  ]);
+  let result = 0;
+  for (let i = 0; i < s.length; i++) {
+    let currentValue = romanMap.get(s[i]);
+    if (currentValue < romanMap.get(s[i + 1])) {
+      result -= currentValue;
+    } else {
+      result += currentValue;
+    }
   }
-  return numsber;
+  return result;
 };
+
+console.log(romanToInt("MCMXCIV"));
+console.log(romanToInt("IV"));
+console.log(romanToInt("LVIII"));
+
+console.log(romanToInt("IX"));
+console.log(romanToInt("X"));
+console.log(romanToInt("L"));
+console.log(romanToInt("C"));
+console.log(romanToInt("D"));
+console.log(romanToInt("M"));
